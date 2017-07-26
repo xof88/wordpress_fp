@@ -1,0 +1,103 @@
+.sec-title {
+    font-size: 26px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 30px 0;
+    span {
+        background: $color__background-button;
+        color: #fff;
+        padding: 6px;
+        line-height: 42px;
+        margin-right: 5px;
+    }
+}
+section.blog-page-content {
+    position: relative;
+    padding: 30px 0;
+}
+section.page-content {
+    margin: 0;
+    padding: 30px 0;
+}
+.metabar-wrap span {
+    margin-right: 15px;
+}
+.post-cat a {
+    font-size: 15px;
+    color: #fff !important;
+    background: $theme__colorbackground;
+    padding: 5px 9px;
+    text-decoration: none;
+}
+span.post-love a {
+    color: $color__text-main;
+    font-size: 15px;
+    text-decoration: none;
+}
+span.post-comment a {
+    color: $color__text-main;
+    font-size: 15px;
+    text-decoration: none;
+}
+.metabar-wrap span a>i {
+    margin-right: 7px;
+}
+span.post-love:hover i , span.post-comment:hover i {
+    color: $color__link-hover;
+}
+.postbox .post-content .post-desc p {
+    margin: 0;
+    padding: 20px 0 0 0;
+    line-height: 23px;
+}
+.postbox .post-thumb {
+    position: relative;
+    overflow: hidden;
+}
+
+
+//front page
+.page-content{
+    .post-thumb-overlay{
+        .post-video-holder{
+            height: 240px;
+            overflow: hidden;
+
+            .media-holder{
+                padding-bottom: 89.25%;
+            }
+        }
+        .image-post{
+            height: 240px;
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .post-gallery-item-holder {
+            height: 240px;
+            background-size: cover;
+            background-position: center center;
+        }
+        .post-audio-holder {
+            height: 240px;
+        }
+    }
+}
+//video post format with full width
+.page-content.no-sidebar{
+    .post-video-holder{
+        height: auto;
+        overflow: hidden;
+
+        .media-holder{
+            padding-bottom: 42.25%;
+        }
+    }
+}
+
+.page-content{
+    .post-content-wrap .slick-prev,.post-content-wrap .slick-next{
+        top: 40% !important;
+    }
+} 

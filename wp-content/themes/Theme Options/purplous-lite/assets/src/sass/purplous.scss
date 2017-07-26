@@ -1,0 +1,83 @@
+/*!
+Theme Name:
+Theme URI:
+Author: Codethemes
+Author URI:
+Description:
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others. */
+
+/*--------------------------------------------------------------
+TABLE OF CONTENTS:
+----------------------------------------------------------------
+1. Bootstrap
+2. Base
+    ## Typography
+    ## Helpers
+3. Components
+4. Layouts
+5. Modules
+6. Vendors
+7. Page Specific
+8. Media queries
+--------------------------------------------------------------*/
+
+@import "purplous/utils/variables";
+
+
+/*--------------------------------------------------------------
+1. Bootstrap
+--------------------------------------------------------------*/
+@import "vendor/bootstrap",
+        "vendor/font-awesome";
+
+
+/*--------------------------------------------------------------
+2. Base
+--------------------------------------------------------------*/
+@import "vendor/animate",
+        "purplous/base/helpers",
+        "purplous/base/fonts",
+        "purplous/base/typography";
+
+
+/*--------------------------------------------------------------
+3. layout
+--------------------------------------------------------------*/
+@import "purplous/layout/footer",
+		"purplous/layout/mainpage-content",
+		"purplous/layout/navigation",
+		"purplous/layout/social-header";
+
+
+/*--------------------------------------------------------------
+4. Components
+--------------------------------------------------------------*/
+@import "purplous/component/featured-slider",
+		"purplous/component/post-large",
+		"purplous/component/post-med",
+		"purplous/component/post-small",
+		"purplous/component/top-articles",
+		"purplous/component/postbox-comp",
+		"purplous/component/page-content",
+		"purplous/component/widgets";
+		
+		
+/*--------------------------------------------------------------
+5. Vendors
+--------------------------------------------------------------*/
+@import "vendor/slick",
+		"vendor/vendor-overrides";
+
+/*--------------------------------------------------------------
+6. utils
+--------------------------------------------------------------*/
+@import "purplous/utils/hover-effects",
+        "purplous/utils/media-queries";
+

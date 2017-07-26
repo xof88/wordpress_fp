@@ -1,0 +1,43 @@
+.post-med-style .postbox .post-thumb {
+    position: relative;
+    overflow: hidden;
+    height: 260px;
+    max-width: 100%;
+    background-size: cover;
+    background-position: center center;
+    
+	.post-date{    
+		display: inline-block;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    text-align: center;
+	    background: $theme__colorbackground;
+	    width: 50px;
+	    height: 52px;
+	    padding: 4px;
+	    z-index: 999;
+	    span {
+		    font-size: 16px;
+		    text-transform: uppercase;
+		    color: #fff;
+		}
+	}
+}
+.post-med-style .post-video-holder{
+	overflow:hidden;
+	height: 260px;
+   	max-height: 260px;
+	.media-holder{
+    	padding-bottom: 38.3%;
+    }
+}
+
+.post-med-style .post-gallery-item-holder {
+    height: 260px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.post-med-style .post-audio-holder {
+    height: 260px;
+}

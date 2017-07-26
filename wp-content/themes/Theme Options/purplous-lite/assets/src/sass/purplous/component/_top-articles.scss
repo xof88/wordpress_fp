@@ -1,0 +1,75 @@
+.top-article-sec{
+	background: #fff !important;
+}
+.top-article-item{
+    position: relative;
+    outline: 0;
+    img {
+	    width: 100%;
+	    height: auto;
+	}
+	.top-article-content-wrap {
+	    background: rgba(255, 255, 255,0.9);
+	    position: absolute;
+	    top: 10%;
+	    bottom: 10%;
+	    right: 10%;
+	    left: 10%;
+	    color: #fff;
+	    text-align: center;
+	    -webkit-backface-visibility: hidden;
+	    backface-visibility: hidden;
+	    opacity: 0;
+	    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	    transition: opacity 0.35s, transform 0.35s;
+
+	    .top-article-content {
+		    position: relative;
+		    padding: 42px 0;
+		    height: 100%;
+
+		    h2.article-title {
+			    font-size: 18px;
+			    text-transform: uppercase;
+			    padding: 0 20px;
+			    line-height: 28px;
+			     a {
+				    text-decoration: none;
+				    color: #0a0a0a;
+				    outline: 0;
+				    &:hover {
+					    color: #ddbe86;
+					}
+				}
+			}
+			.article-full-date {
+			    position: relative;
+			    color: $color__heading;
+			    font-size: 14px;
+			    text-transform: uppercase;
+			    a{
+			    	color: $color__heading;
+			    }
+			 
+			}
+			span.post-cat {
+			    margin-right: 10px;
+			}
+			.metabar-wrap {
+			    position: relative;
+			    padding-bottom: 30px;
+			}
+			.btn-default {
+			    color: #fff;
+			    background: $theme__colorbackground;
+			    border-radius: 30px;
+			    padding: 7px 15px;
+			    text-transform: uppercase;
+			    font-size: 13px;
+			}
+		}
+	}
+}
+.top-article-item:hover .top-article-content-wrap{
+    opacity: 1;
+}

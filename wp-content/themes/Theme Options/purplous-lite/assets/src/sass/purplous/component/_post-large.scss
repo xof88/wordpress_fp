@@ -1,0 +1,119 @@
+.post-large-style .postbox .post-thumb {
+    position: relative;
+    overflow: hidden;
+    height: 450px;
+    max-width: 100%;
+    background-size: cover;
+    background-position: center center;
+
+	.post-date{    
+		display: inline-block;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    text-align: center;
+	    background: $theme__colorbackground;
+	    width: 50px;
+	    height: 52px;
+	    padding: 4px;
+	    z-index: 999;
+	    span {
+		    font-size: 16px;
+		    text-transform: uppercase;
+		    color: #fff;
+		}
+	}
+
+	img {
+	    width: 100%;
+	    max-width: 100%;
+	    line-height: auto;
+	}
+}
+ .postbox .post-content h2 {
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    line-height: 1.4;
+    a{
+	    text-decoration: none;
+	    color: #0a0a0a;
+	    &:hover{
+		    color: $color__link-hover;
+		}
+	}
+}
+.post-large-style .postbox .post-content .post-desc p {
+    margin: 0;
+    padding: 20px 0 0 0;
+    line-height: 23px;
+}
+.post-large-style .post-video-holder{
+	overflow:hidden;
+	height: 420px;
+   	max-height: 420px;
+	.media-holder{
+    	padding-bottom: 61.3%;
+    }
+}
+.post-large-style .post-gallery-item-holder {
+    height: 450px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.post-large-style .post-audio-holder {
+    height: 450px;
+}
+
+
+//
+.post-large-slider{
+	.slick-next{
+		right: 0;
+	    height: 40px;
+	    width: 40px;
+	    background: #fff;
+	    box-shadow: none;
+	    color: #ddbe86;
+	    -webkit-transition: all .4s ease;
+    	transition: all .4s ease;
+
+	    &:before{
+	        font-size: 20px !important;
+    		line-height: 1;
+	    }
+
+	    &:hover:before{
+	    	color: #fff;
+	    } 
+	}
+	.slick-prev{
+		left: 0;
+		height: 40px;
+	    width: 40px;
+	    background: #fff;
+	    box-shadow: none;
+	    color: #ddbe86;
+	    -webkit-transition: all .4s ease;
+    	transition: all .4s ease;
+
+	    &:before{
+	        font-size: 20px !important;
+    		line-height: 1;
+	    }
+	    &:hover:before{
+	    	color: #fff;
+	    }
+	}
+
+	&:hover .slick-next{
+		opacity: 1;
+	}
+
+	&:hover .slick-prev{
+		opacity: 1;
+	}
+}

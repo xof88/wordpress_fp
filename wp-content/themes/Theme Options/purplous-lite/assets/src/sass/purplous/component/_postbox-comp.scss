@@ -1,0 +1,105 @@
+.postbox .post-footer {
+    position: relative;
+    background: #f7f6f4;
+    line-height: 60px;
+    padding: 0 20px;
+    min-height: 60px;
+    .continue-read {
+        position: relative;
+        width: 50%;
+        display: inline-block;
+        text-align: right;
+        float: right;
+        span {
+            text-decoration: none;
+            margin-right: 9px;
+            font-size: 16px;
+        }
+        a{
+            text-decoration: none;
+        }
+        i {
+            width: 33px;
+            height: 33px;
+            border-radius: 100%;
+            line-height: 30px;
+            text-align: center;
+            font-size: 18px;
+            color: #fff;
+            background: $theme__colorbackground;
+            border: 2px solid $theme__colorbackground;
+        }
+    }
+
+    .post-share {
+        position: relative;
+        float: left;
+        width: 50%;
+        ul {
+            padding-left: 0;
+            margin: 0;
+            list-style: none;
+            li {
+                display: inline-block;
+                margin-right: 5px;
+                width: 32px;
+                height: 32px;
+                line-height: 27px;
+                text-align: center;
+                border: 1px solid #787171;
+                border-radius: 50px;
+                a {
+                    text-decoration: none;
+                    color: #787171;
+                    margin: 0;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+.postbox .post-thumb img{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+.post-date {
+    display: inline-block;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    text-align: center;
+    background: $theme__colorbackground;
+    width: 50px;
+    height: 52px;
+    padding: 4px;
+    z-index: 999;
+}
+.post-date span a{
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #fff !important;
+    text-decoration: none;
+}
+.post-content-wrap:hover .slick-next, .post-content-wrap:hover .slick-prev{
+    opacity: 1 !important;
+} 
+.postbox .continue-read a:hover i{
+    background: transparent !important;
+    color: $theme__colorbackground !important;
+}
+.post-large-slider .featured-video{
+    height: 550px;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.post-content-wrap {
+    position: relative;
+}
+
+.post-audio-holder, .post-video-holder, .post-gallery-item-holder,.post-thumb, .no-image, .no-image {
+    background: rgba(10, 10, 10, 0.09);
+}
+

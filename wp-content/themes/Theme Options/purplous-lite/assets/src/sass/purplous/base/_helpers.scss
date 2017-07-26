@@ -1,0 +1,188 @@
+.slow{
+    -webkit-animation-duration: 1.4s;
+    animation-duration: 1.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.left-sidebar{
+    float: left !important;
+}
+.right-sidebar{
+    float: right !important;
+}
+.right{
+    float: right;
+}
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.boxed-layout .row{
+    margin-left: -15px;
+    margin-right: -15px; 
+}
+.site-wrapper {
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    -o-box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    -ms-box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    z-index: 99999;
+}
+.bgwhite {
+    background: #fff;
+    margin-bottom: 25px;
+}
+.post-pad{
+	padding: 25px;
+}
+
+//slick slide
+.slick-next, .slick-prev {
+    height: 30px;
+    width: 30px;
+    line-height: 0;
+    font-size: 0;
+    cursor: pointer;
+    background: 0 0;
+    color: transparent;
+    position: absolute;
+    top: 50%;
+    border-radius: 0;
+    margin-top: -10px\9;
+    border: none;
+    outline: 0;
+    z-index: 9;
+    opacity: 0;
+}
+.slick-prev:before{
+    content: "\f053" !important;
+    font-family: FontAwesome;
+    margin-right: 3px !important;
+}
+.slick-next:before{
+    content: "\f054" !important;
+    font-family: FontAwesome;
+    margin-left: 3px !important;  
+}
+
+.slick-next:hover, .slick-prev:hover{
+    background: $theme__colorbackground !important;
+}
+
+
+.post-content-wrap .slick-next{
+    top: 50% !important;
+    right: 0;
+    width: 35px !important;
+    height: 35px !important;
+    background: #fff !important;
+    border-radius: 0;
+    box-shadow: none;
+    color: #ddbe86;
+    border: none;
+    opacity: 0 !important;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+}
+.post-content-wrap .slick-prev{
+    left: 0;
+    top: 50% !important;
+    width: 35px !important;
+    height: 35px !important;
+    background: #fff !important;
+    border-radius: 0;
+    box-shadow: none;
+    color: #ddbe86;
+    border: none;
+    opacity: 0 !important;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+    z-index: 9;
+}
+.post-content-wrap .slick-prev:hover, .post-content-wrap .slick-next:hover{
+    background: $theme__colorbackground !important;
+}
+.post-content-wrap .slick-next:before{
+    content: "\f054" !important;
+    font-family: FontAwesome;
+    margin-left: 3px !important;
+}
+.post-content-wrap .slick-prev:before{
+    content: "\f053" !important;
+    font-family: FontAwesome;
+    margin-right: 3px !important;
+}
+.post-content-wrap .slick-next:before, .post-content-wrap .slick-prev:before {
+    font-size: 17px !important;
+    line-height: 1;
+}
+.post-content-wrap .slick-next:hover:before, .post-content-wrap .slick-prev:hover:before{
+    color: #fff !important;
+}
+
+//navigation
+.pagination {
+    display: block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+    float: left;
+    width: 100%;
+}
+.nav-links .page-numbers {
+    padding: 7px 13px;
+    background: transparent;
+    color: #ddbe86;
+    text-transform: uppercase;
+    margin-right: 7px;
+    font-size: 16px;
+    text-decoration: none;
+    border: 1px solid #ddbe86;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+.nav-links .page-numbers:hover{
+    background: #ddbe86;
+    color: #fff;
+}
+.nav-links .page-numbers.current {
+    background: #ddbe86;
+    color: #fff;
+}
+/*Responsive embeds*/
+.media-holder{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+.media-holder iframe, .media-holder embed, .media-holder object, .media-holder video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+.featured-video iframe{
+    max-width: none !important;
+}
+.post-audio-holder .fitiframe {
+    width: 100%;
+}
+
+
+//page header
+.page-header{
+    margin-top: 0;
+    margin-bottom: 30px;
+    padding-bottom: 0;
+
+    .page-title{
+        font-size: 24px;
+        text-transform: uppercase;
+    }
+}
