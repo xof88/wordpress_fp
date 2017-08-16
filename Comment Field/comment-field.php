@@ -12,7 +12,7 @@ add_filter('comment_form_default_fields', 'custom_fields');
 function custom_fields($fields) {
 
     $commenter = wp_get_current_commenter();
-    $req = get_option( 'require_name_email' );
+    $req = get_option( 'require_name' );
     $aria_req = ( $req ? " aria-required='true'" : '' );
 
     $fields[ 'author' ] = '<p class="comment-form-author">'.
@@ -23,18 +23,13 @@ function custom_fields($fields) {
 
     $fields[ 'email' ] = '<p class="comment-form-email">'.
       '<label for="email">' . __( 'Email' ) . '</label>'.
-      ( $req ? '<span class="required">*</span>' : '' ).
       '<input id="email" name="email" type="text" value="'. esc_attr( $commenter['comment_author_email'] ) .
-      '" size="30"  tabindex="2"' . $aria_req . ' /></p>';
+      '" size="30"  tabindex="2" /></p>';
 
     $fields[ 'url' ] = '<p class="comment-form-url">'.
       '<label for="url">' . __( 'Website' ) . '</label>'.
       '<input id="url" name="url" type="text" value="'. esc_attr( $commenter['comment_author_url'] ) .
-      '" size="30"  tabindex="3" /></p>';
-
-    $fields[ 'phone' ] = '<p class="comment-form-phone">'.
-      '<label for="phone">' . __( 'Phone' ) . '</label>'.
-      '<input id="phone" name="phone" type="text" size="30"  tabindex="4" /></p>';
+      '" size="30"  tabindex="2" /></p>';
 
   return $fields;
 }
@@ -45,36 +40,27 @@ add_action( 'comment_form_logged_in_after', 'additional_fields' );
 add_action( 'comment_form_after_fields', 'additional_fields' );
 
 function additional_fields () {
-  echo '<p class="comment-form-title">'.
-  '<label for="title">' . __( 'Comment Title' ) . '</label>'.
-  '<input id="title" name="title" type="text" size="30"  tabindex="5" /></p>';
+  echo '<p class="comment-form-location">'.
+  '<label for="location">' . __( 'Location' ) . '</label>'.
+  '<input id="location" name="location" type="text" size="30"  tabindex="5" /></p>';
 
-  echo '<p class="comment-form-rating">'.
-  '<label for="rating">'. __('Rating') . '<span class="required">*</span></label>
-  <span class="commentratingbox">';
-
-    //Current rating scale is 1 to 5. If you want the scale to be 1 to 10, then set the value of $i to 10.
-    for( $i=1; $i <= 5; $i++ )
-    echo '<span class="commentrating"><input type="radio" name="rating" id="rating" value="'. $i .'"/>'. $i .'</span>';
-
-  echo'</span></p>';
+  echo '<p class="comment-form-favorite-place">'.
+  '<label for="favorite-place">'. __('Favorite Place Visited') .'</label>'.
+  '<input id="favorite-place" name="favorite-place" type="text" size="30"  tabindex="5" /></p>';
 }
 
 // Save the comment meta data along with comment
 
 add_action( 'comment_post', 'save_comment_meta_data' );
 function save_comment_meta_data( $comment_id ) {
-  if ( ( isset( $_POST['phone'] ) ) && ( $_POST['phone'] != '') )
-  $phone = wp_filter_nohtml_kses($_POST['phone']);
-  add_comment_meta( $comment_id, 'phone', $phone );
 
-  if ( ( isset( $_POST['title'] ) ) && ( $_POST['title'] != '') )
-  $title = wp_filter_nohtml_kses($_POST['title']);
-  add_comment_meta( $comment_id, 'title', $title );
+  if ( ( isset( $_POST['location'] ) ) && ( $_POST['location'] != '') )
+  $location = wp_filter_nohtml_kses($_POST['location']);
+  add_comment_meta( $comment_id, 'location', $location );
 
-  if ( ( isset( $_POST['rating'] ) ) && ( $_POST['rating'] != '') )
-  $rating = wp_filter_nohtml_kses($_POST['rating']);
-  add_comment_meta( $comment_id, 'rating', $rating );
+  if ( ( isset( $_POST['favorite-place'] ) ) && ( $_POST['favorite-place'] != '') )
+  $favorite = wp_filter_nohtml_kses($_POST['favorite-place']);
+  add_comment_meta( $comment_id, 'favorite-place', $favorite);
 }
 
 // Add the comment meta (saved earlier) to the comment text
@@ -85,17 +71,17 @@ function modify_comment( $text ){
 
   $plugin_url_path = WP_PLUGIN_URL;
 
-  if( $commenttitle = get_comment_meta( get_comment_ID(), 'title', true ) ) {
-    $commenttitle = '<strong>' . esc_attr( $commenttitle ) . '</strong><br/>';
-    $text = $commenttitle . $text;
+  if( $location = get_comment_meta( get_comment_ID(), 'location', true ) ) {
+    $location = '<strong>' . esc_attr( $location ) . '</strong><br/>';
+    $text = $location . $text;
   } 
 
-  if( $commentrating = get_comment_meta( get_comment_ID(), 'rating', true ) ) {
-    $commentrating = '<p class="comment-rating">  <img src="'. $plugin_url_path .
-    '/ExtendComment/images/'. $commentrating . 'star.gif"/><br/>Rating: <strong>'. $commentrating .' / 5</strong></p>';
-    $text = $text . $commentrating;
+  if( $favorite = get_comment_meta( get_comment_ID(), 'rating', true ) ) {
+    $favorite = '<strong>' . esc_attr( $favorite ) . '</strong><br/>';
+    $text = $favorite . $text;
     return $text;
-  } else {
+  } 
+  else {
     return $text;
   }
 }
@@ -108,29 +94,17 @@ function extend_comment_add_meta_box() {
 }
 
 function extend_comment_meta_box ( $comment ) {
-    $phone = get_comment_meta( $comment->comment_ID, 'phone', true );
-    $title = get_comment_meta( $comment->comment_ID, 'title', true );
-    $rating = get_comment_meta( $comment->comment_ID, 'rating', true );
+    $location = get_comment_meta( $comment->comment_ID, 'location', true );
+    $favorite = get_comment_meta( $comment->comment_ID, 'favorite-place', true );
     wp_nonce_field( 'extend_comment_update', 'extend_comment_update', false );
     ?>
     <p>
-        <label for="phone"><?php _e( 'Phone' ); ?></label>
-        <input type="text" name="phone" value="<?php echo esc_attr( $phone ); ?>" class="widefat" />
+        <label for="location"><?php _e( 'Location' ); ?></label>
+        <input type="text" name="location" value="<?php echo esc_attr( $location ); ?>" class="widefat" />
     </p>
     <p>
-        <label for="title"><?php _e( 'Comment Title' ); ?></label>
-        <input type="text" name="title" value="<?php echo esc_attr( $title ); ?>" class="widefat" />
-    </p>
-    <p>
-        <label for="rating"><?php _e( 'Rating: ' ); ?></label>
-      <span class="commentratingbox">
-      <?php for( $i=1; $i <= 5; $i++ ) {
-        echo '<span class="commentrating"><input type="radio" name="rating" id="rating" value="'. $i .'"';
-        if ( $rating == $i ) echo ' checked="checked"';
-        echo ' />'. $i .' </span>';
-        }
-      ?>
-      </span>
+        <label for="favorite-place"><?php _e( 'Favorite Place Visited' ); ?></label>
+        <input type="text" name="favorite-place" value="<?php echo esc_attr( $favorite ); ?>" class="widefat" />
     </p>
     <?php
 }
@@ -140,38 +114,28 @@ function extend_comment_meta_box ( $comment ) {
 add_action( 'edit_comment', 'extend_comment_edit_metafields' );
 
 function extend_comment_edit_metafields( $comment_id ) {
-    if( ! isset( $_POST['extend_comment_update'] ) || ! wp_verify_nonce( $_POST['extend_comment_update'], 'extend_comment_update' ) ) return;
+  if( ! isset( $_POST['extend_comment_update'] ) || ! wp_verify_nonce( $_POST['extend_comment_update'], 'extend_comment_update' ) ) return;
 
-  if ( ( isset( $_POST['phone'] ) ) && ( $_POST['phone'] != '') ) :
-  $phone = wp_filter_nohtml_kses($_POST['phone']);
-  update_comment_meta( $comment_id, 'phone', $phone );
+  if ( ( isset( $_POST['location'] ) ) && ( $_POST['location'] != '') ):
+  $title = wp_filter_nohtml_kses($_POST['location']);
+  update_comment_meta( $comment_id, 'location', $location );
   else :
-  delete_comment_meta( $comment_id, 'phone');
+  delete_comment_meta( $comment_id, 'location');
   endif;
 
-  if ( ( isset( $_POST['title'] ) ) && ( $_POST['title'] != '') ):
-  $title = wp_filter_nohtml_kses($_POST['title']);
-  update_comment_meta( $comment_id, 'title', $title );
+  if ( ( isset( $_POST['favorite-place'] ) ) && ( $_POST['favorite-place'] != '') ):
+  $rating = wp_filter_nohtml_kses($_POST['favorite-place']);
+  update_comment_meta( $comment_id, 'favorite-place', $favorite );
   else :
-  delete_comment_meta( $comment_id, 'title');
-  endif;
-
-  if ( ( isset( $_POST['rating'] ) ) && ( $_POST['rating'] != '') ):
-  $rating = wp_filter_nohtml_kses($_POST['rating']);
-  update_comment_meta( $comment_id, 'rating', $rating );
-  else :
-  delete_comment_meta( $comment_id, 'rating');
+  delete_comment_meta( $comment_id, 'favorite-place');
   endif;
 }
 
-<?php
 if( !defined( 'ABSPATH') && !defined('WP_UNINSTALL_PLUGIN') )
     exit();
-
-  $comments = get_comments();
+$comments = get_comments();
   foreach($comments as $comment) {
-    delete_comment_meta($comment->comment_ID, 'phone');
-    delete_comment_meta($comment->comment_ID, 'title');
-    delete_comment_meta($comment->comment_ID, 'rating');
+    delete_comment_meta($comment->comment_ID, 'location');
+    delete_comment_meta($comment->comment_ID, 'favorite-place');
   }
   
