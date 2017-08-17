@@ -9,3 +9,26 @@
 .site-header-bottom {
     margin-top: 27px;
     }
+.site-container {
+	background-color: #FFFFFF;
+	opacity: 0.8;
+	}
+.banner-text-cat {
+	font-size: 2rem;
+	font-weight: 900;
+	color: #000000;
+	}
+.banner-text-title {
+	font-size: 9rem;
+	font-weight: 900;
+	color: #000000;
+	}
+.banner-text-author {
+	font-size: 1rem;
+	font-weight: 900;
+	color: #000000;
+	}
+/*Tried many things to make the header black all the way across, but anything I did that achieved that, altered other containers on the page and made them black
+.site-header-top {
+	background-color: #000000;
+	}
